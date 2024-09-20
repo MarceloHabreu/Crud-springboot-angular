@@ -22,4 +22,9 @@ export class ClientService {
   cadastar(obj: Client): Observable<Client> {
     return this.http.post<Client>(this.url, obj);
   }
+
+  // * Method for update clients
+  editar(obj: Client): Observable<Client> {
+    return this.http.put<Client>(this.url, obj);
+  }
 }
