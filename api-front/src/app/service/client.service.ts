@@ -27,4 +27,9 @@ export class ClientService {
   editar(obj: Client): Observable<Client> {
     return this.http.put<Client>(this.url, obj);
   }
+
+  // *  Method for to remove clients
+  remover(codigo: number): Observable<void> {
+    return this.http.delete<void>(this.url + '/' + codigo);
+  }
 }

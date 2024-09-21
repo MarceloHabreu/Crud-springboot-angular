@@ -1,36 +1,40 @@
-<form>
-  <img src="https://th.bing.com/th/id/OIP.52T8HHBWh6b0dwrG6tSpVQHaFe?w=274&h=202&c=7&r=0&o=5&pid=1.7" alt="Client_img">
+<body>
 
-  <input type="text" placeholder="Name" class="form-control" name="nome" [(ngModel)]="client.nome">
-  <input type="number" placeholder="Age" class="form-control" name="idade" [(ngModel)]="client.idade">
-  <input type="text" placeholder="City" class="form-control" name="cidade" [(ngModel)]="client.cidade">
+  <form>
+    <img src="https://th.bing.com/th/id/OIP.52T8HHBWh6b0dwrG6tSpVQHaFe?w=274&h=202&c=7&r=0&o=5&pid=1.7"
+      alt="Client_img">
 
-  <input type="button" value="Register" *ngIf="btnRegister" class="btn btn-primary" (click)="cadastrar()">
-  <input type="button" value="Alter" *ngIf="!btnRegister" class="btn btn-warning">
-  <input type="button" value="Remove" *ngIf="!btnRegister" class="btn btn-danger">
-  <input type="button" value="Cancel" *ngIf="!btnRegister" class="btn btn-secondary">
-</form>
+    <input type="text" placeholder="Name" class="form-control" name="nome" [(ngModel)]="client.nome">
+    <input type="number" placeholder="Age" class="form-control" name="idade" [(ngModel)]="client.idade">
+    <input type="text" placeholder="City" class="form-control" name="cidade" [(ngModel)]="client.cidade">
+
+    <input type="button" value="Register" *ngIf="btnRegister" class="btn btn-primary" (click)="cadastrar()">
+    <input type="button" value="Alter" *ngIf="!btnRegister" class="btn btn-warning" (click)="editar()">
+    <input type="button" value="Remove" *ngIf="!btnRegister" class="btn btn-danger" (click)="remover()">
+    <input type="button" value="Cancel" *ngIf="!btnRegister" class="btn btn-secondary" (click)="cancelar()">
+  </form>
 
 
-<table class="table" *ngIf="table">
-  <thead>
-    <tr>
-      <th>#</th>
-      <th>Name</th>
-      <th>Age</th>
-      <th>City</th>
-      <th>Select</th>
-    </tr>
-  </thead>
+  <table class="table" *ngIf="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>City</th>
+        <th>Select</th>
+      </tr>
+    </thead>
 
-  <tbody>
-    <tr *ngFor="let c of clientes, index as i">
-      <td>{{i+1}}</td>
-      <td>{{c.nome}}</td>
-      <td>{{c.idade}}</td>
-      <td>{{c.cidade}}</td>
-      <td><button class="btn btn-success" (click)="selecionarCliente(i)">Select</button></td>
-      <td></td>
-    </tr>
-  </tbody>
-</table>
+    <tbody>
+      <tr *ngFor="let c of clientes, index as i">
+        <td>{{i+1}}</td>
+        <td>{{c.nome}}</td>
+        <td>{{c.idade}}</td>
+        <td>{{c.cidade}}</td>
+        <td><button class="btn btn-success" (click)="selecionarCliente(i)">Select</button></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</body>
